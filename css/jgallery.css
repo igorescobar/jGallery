@@ -14,7 +14,7 @@
 .jgContainer div.jgCarrocel { width: 300px; height:50px; position:relative; overflow: hidden }
 .jgContainer div.jgFullGallery { right:0px; width:700px; position:relative }
 .jgContainer div.image div.nav { float:left; position: absolute }
-.jgImageClicked {border:1px solid #333 }
+.jgImageClicked { border:1px solid #333 }
 .jgContainer .jgCarrocel  {text-align:left; margin:0 }
 .jgcarocel-prev, .jgcarocel-next { width: 50px; height:50px;}
 
