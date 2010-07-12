@@ -100,7 +100,7 @@ jQuery.fn.setjGalleryEvents = function ( ) {
 	$('.jgContainer .image div.nav a[rel=next]').bind ('click', function () {
 		
 		if ( jgOptions.openedImage.next().length > 0 )
-			$(this)._switchImage ( jgOptions.openedImage.next() );
+			$(this)._switchImage ( jgOptions.openedImage.next('a') );
 		
 		return false;
 	});
@@ -109,7 +109,7 @@ jQuery.fn.setjGalleryEvents = function ( ) {
 	$('.jgContainer .image div.nav a[rel=prev]').bind ('click', function () {
 		
 		if ( jgOptions.openedImage.prev().length > 0 )
-			$(this)._switchImage ( jgOptions.openedImage.prev() );
+			$(this)._switchImage ( jgOptions.openedImage.prev('a') );
 		
 		return false;
 	});
