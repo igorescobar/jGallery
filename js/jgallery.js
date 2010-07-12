@@ -23,14 +23,14 @@ jQuery.fn.createjGallery = function ( ) {
 		<div class="jgContainer"> \
 			<div class="image"> \
 				<div class="nav"> \
-					<a href="javascript:void(0);" rel="prev"><img src="images/prev.gif" /></a> \
-					<a href="javascript:void(0);" rel="next"><img src="images/next.gif" /></a> \
-					<a href="javascript:void(0);" rel="close"><img src="images/close.gif" /></a> \
+					<a href="#" rel="prev"><img src="images/prev.gif" /></a> \
+					<a href="#" rel="next"><img src="images/next.gif" /></a> \
+					<a href="#" rel="close"><img src="images/close.gif" /></a> \
 				</div> \
 				<img src="images/loading.gif" width="36" height="36" id="jgallery"/> \
 				<div class="legenda"></div> \
-				<a href="javascript:void(0);" class="jgcarocel-prev"><img src="images/arrow-left.gif" /></a> \
-				<a href="javascript:void(0);" class="jgcarocel-next"><img src="images/arrow-right.gif" /></a> \
+				<a href="#" class="jgcarocel-prev"><img src="images/arrow-left.gif" /></a> \
+				<a href="#" class="jgcarocel-next"><img src="images/arrow-right.gif" /></a> \
 				<div class="jgCarrocel"> \
 					<div class="jgFullGallery"></div> \
 				</div> \
@@ -49,32 +49,44 @@ jQuery.fn.setjGalleryEvents = function ( ) {
 	
 	// mantem o fundo do jGallery sempre to tamanho da janela
 	$( window ).bind ( 'resize' , function () {
+		
 		$( this )._setContainerCSS ( );
 		$( this ).centralizaImageContainer ( );
+		
 	});
 	
 	// se clicar no background feche o jGallery
 	$( '.jgBackground' ).bind ( 'click' , function () {
+		
 		$( 'div.jgContainer > *' ).fadeOut ( 'slow' , function () {
 			$( 'div.jgBackground' ).fadeOut ( 'slow' );
 		});
+		
+		return false;
 	});
 	
 	// fecha o jGallery
 	$('.jgContainer .image div.nav a[rel=close]').bind ('click', function () {	
+		
 		$( '.jgBackground' ).trigger('click');
+		
+		return false;
 	});
 	
 	// passa para proxima imagem
 	$('.jgContainer .image div.nav a[rel=next]').bind ('click', function () {
 		if ( jgOptions.openedImage.next().length > 0 )
 			$(this)._switchImage ( jgOptions.openedImage.next() );
+		
+		return false;
 	});
 	
 	// passa para imagem anterior
 	$('.jgContainer .image div.nav a[rel=prev]').bind ('click', function () {
 		if ( jgOptions.openedImage.prev().length > 0 )
 			$(this)._switchImage ( jgOptions.openedImage.prev() );
+		
+		return false;
 	});
 	
 	// SLIDES
@@ -84,6 +96,8 @@ jQuery.fn.setjGalleryEvents = function ( ) {
 			jgOptions.jgCurrentPage -= 1;
 			jgOptions.jgGallery.animate ( { right: '-=300' } , 1000 );
 		}
+		
+		return false;
 	});
 	
 	// Move slide para frente
@@ -94,6 +108,8 @@ jQuery.fn.setjGalleryEvents = function ( ) {
 			jgOptions.jgCurrentPage += 1;
 			jgOptions.jgGallery.animate ( { right: '+=300' } , 1000 );
 		}
+		
+		return false;
 	});	
 }
 
