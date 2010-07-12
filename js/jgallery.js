@@ -237,7 +237,7 @@ jQuery.fn.extend({
 			jgImageMaxWidth: ( $( window ).width () / 100 ) * 90, 	// largura máxima que uma imagem pode ter
 			jgCarrocelGallery : $( '.jgCarrocel' ), 				// elemento que faz o slide das imagens
 			jgGallery : $( '.jgFullGallery' ),						// elemento que guarda as imagens da galeria
-			jgGalleryHeight : null,									// recebe a altura da galeria no popup
+			jgGalleryHeight : 0,									// recebe a altura da galeria no popup
 			jgGalleryTotalWidth : 0,								// recebe a largura máxima da galeria somando a largura de todas as miniaturas
 			jgMaxNextClick : 0,										// guarda o numero de vezes que eu posso deslizar a galeria para frente
 			jgCurrentPage : 0,										// guarda a pagina atual do slide
