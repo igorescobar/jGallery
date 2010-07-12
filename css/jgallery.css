@@ -15,7 +15,6 @@
 .jgContainer div.image div.nav { float:left; position: absolute }
 .jgContainer div.image .subNav { z-index:103; float:left; position: absolute; bottom: 0px }
 .jgContainer div.image .jgCarrocel {  width: 300px; bottom:30px; text-align:left; margin:0 auto; padding-top:4px; overflow: hidden; background-color:#FFF; float:left; position: absolute }
-.jgContainer .jgloader {float:left;position:absolute;top:45%;}
+.jgContainer .jgloader {float:left;position:absolute;top:45%; left:37%;}
 .jgImageClicked { border:1px solid #333 }
 .jgcarocel-prev, .jgcarocel-next { width: 50px; height:50px }
-
