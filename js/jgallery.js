@@ -238,7 +238,7 @@ jQuery.fn.extend({
 	// esconde o loader quando necessário
 	_unSetLoader: function ( ) {
 		
-		//$('.jgloader').remove();
+		$('.jgloader').remove();
 				
 	},
 	
