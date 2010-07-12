@@ -11,10 +11,11 @@
 
 .jgContainer div.image  { background-color: #FFF; text-align:center; margin:0px auto; float:left; padding:5px; position:absolute }
 .jgContainer div.image .legenda { font-family: Verdana; font-size:10px; display:none; padding: 5px }
-.jgContainer div.jgCarrocel { width: 300px; height:50px; position:relative; overflow: hidden }
 .jgContainer div.jgFullGallery { right:0px; width:700px; position:relative }
 .jgContainer div.image div.nav { float:left; position: absolute }
+.jgContainer div.image .subNav { z-index:10; float:left; position: absolute; bottom: 0px }
+.jgContainer div.image .jgCarrocel {  width: 300px; bottom:30px; text-align:left; margin:0 auto; padding-top:4px; overflow: hidden; background-color:#FFF; float:left; position: absolute }
+.jgContainer .jgloader {float:left;position:absolute;top:45%;}
 .jgImageClicked { border:1px solid #333 }
-.jgContainer .jgCarrocel  {text-align:left; margin:0 }
-.jgcarocel-prev, .jgcarocel-next { width: 50px; height:50px;}
+.jgcarocel-prev, .jgcarocel-next { width: 50px; height:50px }
 
