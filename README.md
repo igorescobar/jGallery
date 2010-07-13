@@ -1,8 +1,10 @@
 <h1>jGallery - A jQuery plugin for image gallerys<h1>
 
 <h2>Requisitos</h2>
-- jQuery 1.4.2
-- Javascript ativo (-.-)
+<ul>
+    <li>jQuery 1.4.2</li>
+    <li>Javascript ativo (-.-)</li>
+</ul>
 
 <h2>Recursos</h2>
 <ul>
@@ -15,7 +17,7 @@
 			<li>N ou -> = Próxima imagem</li>
 			<li>P ou <- = Imagem Anterior</li>
 			<li>ESC ou Clicar no fundo preto = Fecha o jGallery</li>
-		<ul>
+		</ul>
 	</li>
 </ul>
 
@@ -32,6 +34,6 @@
 Quando o DOM for carregado, chame a função jGallery nos elementos que você quer que ela trabalhe.
 
 <strong>Ex:</strong>
-http://github.com/igorescobar/jGallery/blob/master/index.html
+github.com/igorescobar/jGallery/blob/master/index.html
 
 And watch the magic happening B)
