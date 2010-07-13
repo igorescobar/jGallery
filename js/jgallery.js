@@ -12,9 +12,9 @@ var jgOptions = null;
 
 jQuery.fn.setDefaults = function ( ) {
 	jgOptions = {
-		jgIsOpen: false,										// flag que indica quando o jGallery está aberto
-		jgImageMaxHeight: ( $( window ).height () / 100 ) * 80, // algura máxima que uma imagem pode ter
-		jgImageMaxWidth: ( $( window ).width () / 100 ) * 95, 	// largura máxima que uma imagem pode ter
+		jgIsOpen: false,	// flag que indica quando o jGallery está aberto
+		jgImageMaxHeight: ( $( window ).height () / 100 ) * 80,	// algura máxima que uma imagem pode ter
+		jgImageMaxWidth: ( $( window ).width () / 100 ) * 95,	// largura máxima que uma imagem pode ter
 		jgCarrocelGallery : $( '.jgCarrocel' ), 				// elemento que faz o slide das imagens
 		jgGallery : $( '.jgFullGallery' ),						// elemento que guarda as imagens da galeria
 		jgGalleryHeight : 0,									// recebe a altura da galeria no popup
