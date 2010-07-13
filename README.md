@@ -1,5 +1,3 @@
-<h1>jGallery - A jQuery plugin for image gallerys<h1>
-
 <h2>Requisitos</h2>
 <ul>
     <li>jQuery 1.4.2</li>
