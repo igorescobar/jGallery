@@ -19,9 +19,7 @@
 	</li>
 </ul>
 
-<h2> Como Usar <h2>
-
-<h3>Inclua o jQuery e o jGallery</h3>
+<h2> Como Utilizar <h2>
 
 <ul>
     <li>Inclua o arquivo CSS do jGallery em seu documento</li>
