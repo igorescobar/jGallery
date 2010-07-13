@@ -1,0 +1,1 @@
+<h1>jGallery - A jQuery plugin for image gallerys<h1>
