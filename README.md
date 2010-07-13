@@ -19,7 +19,7 @@
 	</li>
 </ul>
 
-<h2> Como Utilizar <h2>
+<h2> Como Utilizar </h2>
 
 <ul>
     <li>Inclua o arquivo CSS do jGallery em seu documento</li>
