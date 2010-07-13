@@ -14,7 +14,7 @@
 		<ul>
 			<li>N ou SETA_DIREITA = Próxima imagem</li>
 			<li>P ou SETA_ESQUERDA = Imagem Anterior</li>
-			<li>ESC ou Clicar no fundo preto = Fecha o jGallery</li>
+			<li>ESC ou Clicando No Fundo = Fecha o jGallery</li>
 		</ul>
 	</li>
 </ul>
