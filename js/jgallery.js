@@ -12,21 +12,36 @@ var jgOptions = null;
 
 jQuery.fn.setDefaults = function ( ) {
 	jgOptions = {
-		jgIsOpen: false,	// flag que indica quando o jGallery está aberto
-		jgImageMaxHeight: ( $( window ).height () / 100 ) * 80,	// algura máxima que uma imagem pode ter
-		jgImageMaxWidth: ( $( window ).width () / 100 ) * 95,	// largura máxima que uma imagem pode ter
-		jgCarrocelGallery : $( '.jgCarrocel' ), 				// elemento que faz o slide das imagens
-		jgGallery : $( '.jgFullGallery' ),						// elemento que guarda as imagens da galeria
-		jgGalleryHeight : 0,									// recebe a altura da galeria no popup
-		jgGalleryTotalWidth : 0,								// recebe a largura máxima da galeria somando a largura de todas as miniaturas
-		jgMaxNextClick : 0,										// guarda o numero de vezes que eu posso deslizar a galeria para frente
-		jgCurrentPage : 0,										// guarda a pagina atual do slide
-		jgBackground : $( '.jgBackground' ),					// guarda o elemento do background
-		jgContainer : $( '.jgContainer' ),						// guarda o elemento que envolve o jGallery
-		jgContainerImage : $( '.jgContainer .image'),			// elemento que contem navegacao, imagem grande e imagens da galeria
-		jgContainerImageObject : $( '.jgContainer .image img#jgallery'),	// imagem grande
-		openedGallery : null, 									// guarda as elementos da galeria que foi aberta
-		openedImage : null										// guarda os elementos da imagem que foi aberta
+		// flag que indica quando o jGallery está aberto
+		jgIsOpen: false, 
+		// algura máxima que uma imagem pode ter
+		jgImageMaxHeight: ( $( window ).height () / 100 ) * 80, 
+		// largura máxima que uma imagem pode ter
+		jgImageMaxWidth: ( $( window ).width () / 100 ) * 95, 
+		// elemento que faz o slide das imagens
+		jgCarrocelGallery : $( '.jgCarrocel' ), 
+		// elemento que guarda as imagens da galeria
+		jgGallery : $( '.jgFullGallery' ), 
+		// recebe a altura da galeria no popup
+		jgGalleryHeight : 0, 
+		// recebe a largura máxima da galeria somando a largura de todas as miniaturas
+		jgGalleryTotalWidth : 0, 
+		// guarda o numero de vezes que eu posso deslizar a galeria para frente
+		jgMaxNextClick : 0, 
+		// guarda a pagina atual do slide
+		jgCurrentPage : 0, 
+		// guarda o elemento do background
+		jgBackground : $( '.jgBackground' ), 
+		// guarda o elemento que envolve o jGallery
+		jgContainer : $( '.jgContainer' ), 
+		// elemento que contem navegacao, imagem grande e imagens da galeria
+		jgContainerImage : $( '.jgContainer .image'), 
+		// objeto da imagem grande
+		jgContainerImageObject : $( '.jgContainer .image img#jgallery'), 
+		// guarda as elementos da galeria que foi aberta
+		openedGallery : null, 
+		// guarda os elementos da imagem que foi aberta
+		openedImage : null 
 	}
 }
 
