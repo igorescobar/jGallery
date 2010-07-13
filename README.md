@@ -12,8 +12,8 @@
     <li>Atalhos de teclado</li>
 	<li>
 		<ul>
-			<li>N ou -> = Próxima imagem</li>
-			<li>P ou <- = Imagem Anterior</li>
+			<li>N ou SETA_DIREITA = Próxima imagem</li>
+			<li>P ou SETA_ESQUERDA = Imagem Anterior</li>
 			<li>ESC ou Clicar no fundo preto = Fecha o jGallery</li>
 		</ul>
 	</li>
