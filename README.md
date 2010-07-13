@@ -28,7 +28,7 @@
     <li>Inclua o jGalleru em seu documento</li>
 </ul>
 
-<p>Quando o DOM for carregado, chame a função jGallery nos elementos que você quer que ela trabalhe. </p> <br />
+<p>Quando o DOM for carregado, chame a função jGallery nos elementos que você quer que ela trabalhe. </p>
 <a href="http://github.com/igorescobar/jGallery/blob/master/index.html">Exemplo de aplicação</a>
 
 <p>And watch the magic happening B)</p>
