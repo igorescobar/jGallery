@@ -165,13 +165,13 @@ jQuery.fn.setjGalleryEvents = function ( ) {
 	
 	$(window).keydown ( function (event) {
 		
-		// 				[ mac, window, linux ] eventualmente
-		var key_left 	= [37];
-		var key_right 	= [39];
+		// [ mac, window, linux ]
+		var key_left	= [37];
+		var key_right	= [39];
 		
-		var key_p 		= [80];
-		var key_n 		= [78];
-		var key_esc 	= [27];
+		var key_p		= [80];
+		var key_n		= [78];
+		var key_esc		= [27];
 			
 		if ( jgOptions.jgIsOpen == true && ( jQuery.inArray (event.keyCode, key_right) == 0 || jQuery.inArray (event.keyCode, key_n) == 0 ) )
 			$('.jgContainer .image div.nav a[rel=next]').trigger('click');
@@ -218,13 +218,12 @@ jQuery.fn.extend({
 	_setContainerCSS: function ( ) {
 		
 		// Seta o alpha no background caso o usuário escolha
-		if ( typeof jgOptions.jgBackgroundOpacity == "number" ) {
+		if ( typeof jgOptions.jgBackgroundOpacity == "number" )
 			jgOptions.jgBackground.css ( { opacity: jgOptions.jgBackgroundOpacity } );
-		}
 
-		jgOptions.jgCarrocelGallery.css ( { opacity: 0.2 } );
 		jgOptions.jgGallery.css ( { 'width': $( window ).width () } );
 		jgOptions.jgCarrocelGallery.css ( { 'width': jgOptions.jgContainerImageObject.css('width') } );
+		jgOptions.jgCarrocelGallery.css ( { opacity: 0.2 } );
 		
 		// fundo do tamanho da janela
 		jgOptions.jgBackground.css ({
@@ -264,7 +263,6 @@ jQuery.fn.extend({
 		
 		jgOptions.openedImage = oLinkClick;
 				
-		// mostra loader
 		$( this )._setLoader ( );
 		
 		// remove todas as classes referente a click de imagem
@@ -276,7 +274,7 @@ jQuery.fn.extend({
 		// faz o preload da imagem
 		var image_title = oLinkClick.find( 'img' ).attr('title');
 		
-		var preload = new Image ();
+		var preload = new Image ( );
 			preload.src =  oLinkClick.attr('href');	
 		
 		// quando a imagem carregar
@@ -289,7 +287,7 @@ jQuery.fn.extend({
 			preload.width = sizes[0];
 			preload.height = sizes[1];
 			
-			jgOptions.jgGalleryHeight = jgOptions.openedImage.find('img').height();
+			jgOptions.jgGalleryHeight = jgOptions.openedImage.find ('img').height ();
 							
 			// esconde o container da imagem
 			jgOptions.jgContainerImage.fadeOut('fast', function () {
@@ -333,9 +331,7 @@ jQuery.fn.extend({
 		$(this).setDefaults();
 		$(this).setjGalleryEvents();
 		
-		
 		$.extend ( jgOptions, parametros );
-		
 		
 		$( this )._setContainerCSS ( );
 		$( this ).centralizaImageContainer ( );
@@ -345,7 +341,12 @@ jQuery.fn.extend({
 			
 			jgOptions.openedGallery = $( this );
 			
-			// bloqueia o clique dos links da galeria
+			// clona a galeria
+			jgOptions.openedGallery.find ( 'a:has(img)' ).each ( function () { 
+				$( $(this) ).clone ( ).appendTo ( $( '.jgFullGallery' ) );
+			});
+			
+			// abre a galeria se clicar em alguma imagem dela
 			$( this ).find ( 'a:has(img)' ).bind ( 'click' , function ( ) {	
 				
 				jgOptions.jgIsOpen = true;
@@ -353,13 +354,7 @@ jQuery.fn.extend({
 				$( this )._getJGalleryTotalWidth();
 				
 				// objeto do link
-				jgOptions.openedImage = $( this );
-				
-				// clona a galeria
-				$('.jgFullGallery').html ( jgOptions.openedGallery.html () );
-				
-				// limpa o html de origem
-				$('.jgFullGallery br').remove();
+				jgOptions.openedImage = $( this );			
 
 				jgOptions.jgBackground.fadeIn ( 'slow' , function ( ) {
 					
@@ -376,7 +371,7 @@ jQuery.fn.extend({
 				
 			});
 			
-			// bloqueia o clique dos links da galeria
+			// troca de imagem se clicarem em alguma imagem na box flutuante
 			$( '.jgFullGallery' ).find ( 'a:has(img)' ).live ( 'click' , function ( ) {				
 				
 				// objeto do link
