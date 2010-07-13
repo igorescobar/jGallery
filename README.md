@@ -6,6 +6,7 @@
 
 <h2>Recursos</h2>
 <ul>
+	<li>Multiplas galerias na mesma página</li>
     <li>As imagens se adaptam a área útil do seu navegador</li>
     <li>Caso as proporcões da imagem ultrapassem os limites do browser, novas propoções são calculadas</li>
     <li>Uma réplica plica da galeria é clonada para a popup da galeria para que você navegue nas imagens</li>
