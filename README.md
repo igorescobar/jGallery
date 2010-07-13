@@ -32,10 +32,6 @@
 Quando o DOM for carregado, chame a função jGallery nos elementos que você quer que ela trabalhe.
 
 <strong>Ex:</strong>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.jGallery').jGallery ( { jgBackgroundOpacity: 0.9 } );
-	});
-</script>
+http://github.com/igorescobar/jGallery/blob/master/index.html
 
 And watch the magic happening B)
