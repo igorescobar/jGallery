@@ -298,16 +298,17 @@ jQuery.fn.extend({
 				// carrega imagem clicada
 				$( this )._setImage ( oLinkClick.attr ( 'href' ) , preload.width, preload.height );		
 				
-				// Atualiza as propriedades CSS e Container
-				$( this ).centralizaImageContainer ( );
-				$( this )._setContainerCSS ( );
-				
 				// Atacha a legenda
 				$( '.jgContainer .image div.legenda' ).html ( image_title );
 				$( '.jgContainer .image div.legenda' ).fadeIn ( 'slow' );
 				
 				// mostra a imagem grande
 				jgOptions.jgContainerImage.fadeIn ( 'fast' );
+				
+				// Atualiza as propriedades CSS e Container
+				$( this ).centralizaImageContainer ( );
+				$( this )._setContainerCSS ( );
+				
 			})
 		});
 	},
@@ -333,11 +334,10 @@ jQuery.fn.extend({
 		
 		$.extend ( jgOptions, parametros );
 		
-		$( this )._setContainerCSS ( );
-		$( this ).centralizaImageContainer ( );
-		
 		// suporte para mais de uma galeria por pagina	
 		$( this ).each ( function () {
+			
+			$( this )._setContainerCSS ( );
 			
 			jgOptions.openedGallery = $( this );
 			

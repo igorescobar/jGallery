@@ -18,7 +18,7 @@ body {
 h1, h2, h3{ font-family: "Trebuchet MS",Verdana,Sans-Serif;}
 
 h1 { font-size: 2.3em; }
-h1 a { color:; border: none; }
+h1 a { border: none; }
 h1 em{ font-size: 1.25em; color: #D0EB6A; font-style: normal; }
 
 h2 {

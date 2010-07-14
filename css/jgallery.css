@@ -2,7 +2,7 @@
  * jGallery CSS
 */
 .jgBackground { background-color: #333; z-index: 100; float:left; position:absolute; display:none }
-.jgContainer * {margin:0px;border:0px;}
+.jgContainer * {margin: 0px;border:0px;}
 .jgContainer { z-index: 102; float:left; position:absolute; display:none }
 .jgContainer img { border: 0px }
 .jgContainer .jgFullGallery img { margin:1px }
@@ -12,13 +12,13 @@
 .jgContainer a:active { text-decoration: none }
 
 .jgContainer .image  { background-color: #FFF; text-align:center; margin:0px auto; float:left; padding:5px; position:absolute }
-.jgContainer .image .legenda { font-family: Verdana; font-size:10px; display:none; padding: 5px }
+.jgContainer .legenda { font-family: Verdana; font-size:10px; display:none; padding: 5px }
 .jgContainer .jgFullGallery { right:0px; width:700px; position:relative }
 
-.jgContainer .image .nav { float:left; position: absolute }
-.jgContainer .image .subNav { z-index:103; float:left; position: absolute; bottom: 0px }
+.jgContainer .nav { float:left; position: absolute }
+.jgContainer .subNav { z-index:103; float:left; position: absolute; bottom: 0px }
 
-.jgContainer .image .jgCarrocel {  width: 300px; bottom:30px; text-align:left; margin:0 auto; padding-top:4px; overflow: hidden; background-color:#FFF; float:left; position: absolute }
+.jgContainer .jgCarrocel { z-index:110;  width: 300px; bottom:30px; text-align:left; margin:0 auto; padding-top:4px; overflow: hidden; background-color:#FFF; float:left; position: absolute }
 .jgContainer .jgloader {float:left;position:absolute;top:45%; left:37%;}
 .jgImageClicked { border:1px solid #333 }
 .jgcarocel-prev, .jgcarocel-next { width: 50px; height:50px }
