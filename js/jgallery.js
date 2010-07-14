@@ -95,6 +95,8 @@ jQuery.fn.setjGalleryEvents = function ( ) {
 	jgOptions.jgBackground.bind ( 'click' , function () {
 		
 		jgOptions.jgIsOpen = false;
+		jgOptions.jgCurrentPage = 0;
+		jgOptions.jgGallery.animate ( { right: '0' } , 1000 );
 		
 		$( 'div.jgContainer > *' ).fadeOut ( 'slow' , function () {
 			$( 'div.jgBackground' ).fadeOut ( 'slow' );
@@ -189,6 +191,8 @@ jQuery.fn.extend({
 	
 	// recebe o tamanho total que a galeria terá de largura
 	_getJGalleryTotalWidth: function ( width , height ) {
+		jgOptions.jgGalleryTotalWidth = 0;
+		
 		jgOptions.openedGallery.find('img').each ( function ( ) {
 			jgOptions.jgGalleryTotalWidth += $( this ).attr('width');
 		});
@@ -341,17 +345,22 @@ jQuery.fn.extend({
 			
 			jgOptions.openedGallery = $( this );
 			
-			// clona a galeria
-			jgOptions.openedGallery.find ( 'a:has(img)' ).each ( function () { 
-				$( $(this) ).clone ( ).appendTo ( $( '.jgFullGallery' ) );
-			});
-			
 			// abre a galeria se clicar em alguma imagem dela
 			$( this ).find ( 'a:has(img)' ).bind ( 'click' , function ( ) {	
 				
 				jgOptions.jgIsOpen = true;
 				
-				$( this )._getJGalleryTotalWidth();
+				// clona a galeria
+				jgOptions.openedGallery.find ( 'a:has(img)' ).each ( function () { 
+					
+					if ( $(this).attr('href') == $( '.jgFullGallery' ).find('a:has(img):first').attr('href')) 
+						return false;
+
+					$( $(this) ).clone ( ).appendTo ( $( '.jgFullGallery' ) );
+					
+					$( this )._getJGalleryTotalWidth();
+					
+				});
 				
 				// objeto do link
 				jgOptions.openedImage = $( this );			
