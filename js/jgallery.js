@@ -60,15 +60,17 @@ jQuery.fn.createjGallery = function ( ) {
 					<a href="#" rel="next"><img src="' + jgOptions.jgRoot + 'images/next.gif" /></a> \
 					<a href="#" rel="close"><img src="' + jgOptions.jgRoot + 'images/close.gif" /></a> \
 				</div> \
-				<img src="' + jgOptions.jgRoot + 'images/loading.gif" id="jgallery"/> \
-				<div class="legenda"></div> \
-				<div class="jgCarrocel"> \
-					<div class="subNav"> \
-						<a href="#" class="jgcarocel-prev"><img src="' + jgOptions.jgRoot + 'images/arrow-left.gif" /></a> \
-						<a href="#" class="jgcarocel-next"><img src="' + jgOptions.jgRoot + 'images/arrow-right.gif" /></a> \
+				<div class="img"> \
+					<img src="' + jgOptions.jgRoot + 'images/loading.gif" id="jgallery"/> \
+					<div class="jgCarrocel"> \
+						<div class="subNav"> \
+							<a href="#" class="jgcarocel-prev"><img src="' + jgOptions.jgRoot + 'images/arrow-left.gif" /></a> \
+							<a href="#" class="jgcarocel-next"><img src="' + jgOptions.jgRoot + 'images/arrow-right.gif" /></a> \
+						</div> \
+						<div class="jgFullGallery"></div> \
 					</div> \
-					<div class="jgFullGallery"></div> \
 				</div> \
+				<div class="legenda"></div> \
 			</div> \
 	   </div>' );
 		
@@ -315,8 +317,14 @@ jQuery.fn.extend({
 				$( this )._setImage ( oLinkClick.attr ( 'href' ) , preload.width, preload.height );		
 				
 				// Atacha a legenda
-				$( '.jgContainer .image div.legenda' ).html ( image_title );
-				$( '.jgContainer .image div.legenda' ).fadeIn ( 'slow' );
+				if ( image_title != '' ) {
+
+					$( '.jgContainer .image div.legenda' ).html ( image_title );
+					$( '.jgContainer .image div.legenda' ).fadeIn ( 'slow');
+				} else {
+					if ( jgOptions.jgCarrocelGallery.css('bottom') == '30px' )
+						jgOptions.jgCarrocelGallery.animate({bottom: '-=30px'});
+				}
 				
 				// mostra a imagem grande
 				jgOptions.jgContainerImage.fadeIn ( 'fast' );
