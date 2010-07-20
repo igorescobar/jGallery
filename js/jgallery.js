@@ -285,8 +285,8 @@ jQuery.fn.extend({
 		$( preload ).bind ('load', function ( ) {
 			
 			// se os controles estiverem ocultos, mostre.
-			if ( $('.nav').css('display') == 'none') 
-				$( '.nav').fadeIn('slow');
+			if ( $( '.nav' ).css ( 'display' ) == 'none' ) 
+				$( '.nav' ).fadeIn ( 'slow' );
 			
 			// recebe os tamanhos proporcionais
 			var sizes = $(this)._getProportionalSize(preload.width, preload.height);
