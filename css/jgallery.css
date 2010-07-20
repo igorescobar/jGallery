@@ -15,7 +15,7 @@
 .jgContainer .legenda { font-family: Verdana; font-size:10px; display:none; padding: 5px }
 .jgContainer .jgFullGallery { right:0px; width:700px; position:relative }
 
-.jgContainer .nav { float:left; position: absolute }
+.jgContainer .nav { display:none; float:left; position: absolute }
 .jgContainer .subNav { z-index:103; float:left; position: absolute; bottom: 0px }
 
 .jgContainer .jgCarrocel { z-index:110;  width: 300px; bottom:30px; text-align:left; margin:0 auto; padding-top:4px; overflow: hidden; background-color:#FFF; float:left; position: absolute }
