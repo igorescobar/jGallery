@@ -15,7 +15,7 @@ jQuery.fn.setDefaults = function ( ) {
 		// flag que indica quando o jGallery está aberto
 		jgIsOpen: false, 
 		// algura máxima que uma imagem pode ter
-		jgImageMaxHeight: ( $( window ).height () / 100 ) * 80, 
+		jgImageMaxHeight: ( $( window ).height () / 100 ) * 90, 
 		// largura máxima que uma imagem pode ter
 		jgImageMaxWidth: ( $( window ).width () / 100 ) * 95, 
 		// elemento que faz o slide das imagens
@@ -205,12 +205,12 @@ jQuery.fn.extend({
 		var sizes = Array(width, height);
 
 		if ( width > jgOptions.jgImageMaxWidth ) {
-			sizes[1] = jgOptions.jgImageMaxWidth;		
-			sizes[0] = ( ( sizes[1] * width ) / width );
-		}
+			sizes[0] = ( ( jgOptions.jgImageMaxWidth * width ) / width );
+			sizes[1] = jgOptions.jgImageMaxWidth;			
+		} 
 		
 		if ( height > jgOptions.jgImageMaxHeight ) {
-			sizes[0] = ( ( sizes[1] * height ) / height );
+			sizes[0] = ( (  jgOptions.jgImageMaxHeight * width ) / height );
 			sizes[1] = jgOptions.jgImageMaxHeight;
 		}
 
