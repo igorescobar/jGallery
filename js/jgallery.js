@@ -239,9 +239,10 @@ jQuery.fn.extend({
 		jgOptions.jgCarrocelGallery.css ( { 'width': jgOptions.jgContainerImageObject.css('width') } );
 		jgOptions.jgCarrocelGallery.css ( { opacity: 0.2 } );
 		
+		window_height = ($( 'body' ).innerHeight () < $( window ).width ()) ? $( window ).width () : $( 'body' ).innerHeight ();
 		// fundo do tamanho da janela
 		jgOptions.jgBackground.css ({
-			height: $( 'body' ).innerHeight () ,
+			height: window_height ,
 			width: $( window ).width ()
 		});
 		
