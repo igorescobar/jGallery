@@ -241,7 +241,7 @@ jQuery.fn.extend({
 		
 		// fundo do tamanho da janela
 		jgOptions.jgBackground.css ({
-			height: $( window ).height () ,
+			height: $( 'body' ).innerHeight () ,
 			width: $( window ).width ()
 		});
 		

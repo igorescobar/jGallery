@@ -3,7 +3,7 @@
 */
 .jgBackground { background-color: #333; z-index: 100; float:left; position:absolute; display:none }
 .jgContainer * {margin: 0px;border:0px;}
-.jgContainer { z-index: 102; float:left; position:absolute; display:none }
+.jgContainer { z-index: 102; float:left; position:fixed; display:none }
 .jgContainer img { border: 0px }
 .jgContainer .jgFullGallery img { margin:1px }
 .jgContainer a:link { text-decoration: none }
