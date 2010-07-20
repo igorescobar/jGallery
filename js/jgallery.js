@@ -363,22 +363,22 @@ jQuery.fn.extend({
 		
 		
 		// suporte para mais de uma galeria por pagina	
-		$( this ).each ( function () {
-			
+		$( this ).each ( function ( ) {
+						
 			$( this )._setContainerCSS ( );
-			
-			jgOptions.openedGallery = $( this );
 			
 			// abre a galeria se clicar em alguma imagem dela
 			$( this ).find ( 'a:has(img)' ).bind ( 'click' , function ( ) {	
-								
+				
+				jgOptions.openedGallery = $( this ).parent();
+				
 				jgOptions.jgIsOpen = true;
+				
+				$('.jgFullGallery').html ('');
 				
 				// clona a galeria
 				jgOptions.openedGallery.find ( 'a:has(img)' ).each ( function () {
-					if ( $(this).attr('href') != $( '.jgFullGallery' ).find('a:has(img):first').attr('href')) 
-						$( $(this) ).clone ( ).appendTo ( $( '.jgFullGallery' ) );
-						
+					$( $(this) ).clone ( ).appendTo ( $( '.jgFullGallery' ) );	
 					$( this )._getJGalleryTotalWidth();
 				});
 				
