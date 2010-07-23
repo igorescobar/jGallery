@@ -169,11 +169,12 @@ jQuery.fn.setjGalleryEvents = function ( ) {
 	jgOptions.jgCarrocelGallery.bind({
 		mouseenter: function() {
 			$( this ).fadeTo ('slow', 0.9);
-		},
-		mouseleave: function () {
-			$( this ).fadeTo ('slow', 0.2);
 		}
 	})
+	
+	jgOptions.jgContainerImageObject.bind('mouseover', function () {
+		jgOptions.jgCarrocelGallery.fadeTo ( 'slow' , 0.1 );
+	});
 	
 	$(window).keydown ( function (event) {
 		
