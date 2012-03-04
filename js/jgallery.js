@@ -206,7 +206,7 @@ $(function(){
       jgOptions.jgGalleryTotalWidth = 0;
       
       jgOptions.openedGallery.find('img').each ( function ( ) {
-        jgOptions.jgGalleryTotalWidth += $( this ).attr('width') + 2;
+        jgOptions.jgGalleryTotalWidth += $( this ).width() + 2;
       });
     },
     

@@ -9,15 +9,15 @@ a:active {text-decoration: none}
 
 body {
 	background: #161613;
-	color: #333;
+	color: #CCC;
 	font: 86% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
-#content {background-color:#FFF; width: 500px; margin: 0 auto; padding: 10px}
+#content {background-color:#1F1E1D; width: 500px; margin: 0 auto; padding: 10px}
 
 h1, h2, h3{ font-family: "Trebuchet MS",Verdana,Sans-Serif;}
 
-h1 { font-size: 2.3em; }
+h1 { font-size: 2.3em; color:#D0EB6B;}
 h1 a { border: none; }
 h1 em{ font-size: 1.25em; color: #D0EB6A; font-style: normal; }
 
@@ -37,6 +37,7 @@ h3 {
 	padding-top: 0.5em;
 }
 
+p a {color:#D0EB6B;}
 .JGallery a {
 	padding: 3px 3px 8px 3px;
 	background-color: #222;
