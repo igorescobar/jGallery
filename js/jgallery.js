@@ -62,7 +62,7 @@ $(function(){
             <a href="#" rel="close"><img src="' + jgOptions.jgRoot + 'images/close.gif" /></a> \
           </div> \
           <div class="img"> \
-            <img src="' + jgOptions.jgRoot + 'images/loading.gif" id="jgallery"/> \
+            <img src="#" id="jgallery"/> \
             <div class="jgCarrocel"> \
               <div class="subNav"> \
                 <a href="#" class="jgcarocel-prev"><img src="' + jgOptions.jgRoot + 'images/arrow-left.gif" /></a> \
@@ -266,6 +266,15 @@ $(function(){
         
     },
     
+    // faz preloading de uma imagem e chama o callback
+    _preLoadImage: function(src, onLoadCallback){
+      var preloadImage = new Image ( );
+          preloadImage.src = src;
+          $(preloadImage).load(function(){
+            onLoadCallback(this);
+          })
+    },
+
     // efetua a troca das imagens quando clicadas
     // efetua a troca da imagem quando clicado nos 
     // botoes de navegacao next e prev
@@ -284,16 +293,11 @@ $(function(){
       
       jgOptions.jgContainerImage.find('.jgloader').show();
 
-      var preload = new Image ( );
-        preload.src =  oLinkClick.attr('href'); 
-      
-      // quando a imagem carregar
-      $( preload ).bind ('load', function ( ) {
-
+      $(this)._preLoadImage(oLinkClick.attr('href'), function(preload){
         // se os controles estiverem ocultos, mostre.
         if ( $( '.nav' ).css ( 'display' ) == 'none' ) 
           $( '.nav' ).fadeIn ( 'slow' );
-        
+
         // recebe os tamanhos proporcionais
         var sizes = $(this)._getProportionalSize(preload.width, preload.height);
         
@@ -328,7 +332,7 @@ $(function(){
           $( this ).centralizaImageContainer ( );
           $( this )._setContainerCSS ( );
           
-        })
+        });
       });
     },
     
@@ -374,17 +378,22 @@ $(function(){
           });
           
           // objeto do link
-          jgOptions.openedImage = $( this );      
+          jgOptions.openedImage = $( this );
+          
+          $(this)._preLoadImage(jgOptions.openedImage.attr('href'), function(imageObject){
 
-          jgOptions.jgBackground.fadeIn ( 'slow' , function ( ) {
-            // mostra o container
-            jgOptions.jgContainer.fadeIn ( 2000 , function () {
-              jgOptions.jgCarrocelGallery.slideDown ( 'slow' );
+            jgOptions.jgBackground.fadeIn ( 'slow' , function ( ) {
+              // mostra o container
+              jgOptions.jgContainer.fadeIn ( 2000 , function () {
+                jgOptions.jgCarrocelGallery.slideDown ( 'slow' );
+              });
+              
+              $( this )._switchImage ( jgOptions.openedImage );
+
             });
-            
-            $( this )._switchImage ( jgOptions.openedImage );
-
           });
+
+          
           
           return false;
           
