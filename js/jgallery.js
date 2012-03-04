@@ -348,7 +348,7 @@ $(function(){
         calc_top = (calc_top < 0 ) ? 0 : calc_top;
         
       jgOptions.jgContainerImage.css ( {
-        left: ( $( window ).width () - jgOptions.jgContainerImageObject.attr('width') ) / 2,
+        left: ( $( window ).width () - jgOptions.jgContainerImageObject.width ) / 2,
         top: calc_top
       });
       
