@@ -266,21 +266,12 @@ $(function(){
         
     },
     
-    // esconde o loader quando necessário
-    _unSetLoader: function ( ) {
-      
-      $('.jgloader').remove();
-          
-    },
-    
     // efetua a troca das imagens quando clicadas
     // efetua a troca da imagem quando clicado nos 
     // botoes de navegacao next e prev
     _switchImage: function ( oLinkClick ) {
       
       jgOptions.openedImage = oLinkClick;
-          
-      $( this )._setLoader ( );
       
       // remove todas as classes referente a click de imagem
       $('img').removeClass('jgImageClicked');
@@ -291,12 +282,14 @@ $(function(){
       // faz o preload da imagem
       var image_title = oLinkClick.find( 'img' ).attr('title');
       
+      jgOptions.jgContainerImage.find('.jgloader').show();
+
       var preload = new Image ( );
         preload.src =  oLinkClick.attr('href'); 
       
       // quando a imagem carregar
       $( preload ).bind ('load', function ( ) {
-        
+
         // se os controles estiverem ocultos, mostre.
         if ( $( '.nav' ).css ( 'display' ) == 'none' ) 
           $( '.nav' ).fadeIn ( 'slow' );
@@ -314,14 +307,13 @@ $(function(){
         jgOptions.jgContainerImage.fadeOut('fast', function () {
           
           // esconde loader
-          $( this )._unSetLoader ( );
+          jgOptions.jgContainerImage.find('.jgloader').hide();
           
           // carrega imagem clicada
           $( this )._setImage ( oLinkClick.attr ( 'href' ) , preload.width, preload.height );   
           
           // Atacha a legenda
           if ( image_title != '' ) {
-
             $( '.jgContainer .image div.legenda' ).html ( image_title );
             $( '.jgContainer .image div.legenda' ).fadeIn ( 'slow');
           } else {
@@ -344,8 +336,7 @@ $(function(){
     centralizaImageContainer: function ( ) {
       
       var calc_top = ( ( $( window ).height () / 2) - ( jgOptions.jgContainerImage.innerHeight() / 2 ) );
-          
-        calc_top = (calc_top < 0 ) ? 0 : calc_top;
+          calc_top = (calc_top < 0 ) ? 0 : calc_top;
         
       jgOptions.jgContainerImage.css ( {
         left: ( $( window ).width () - jgOptions.jgContainerImageObject.width() ) / 2,
@@ -356,14 +347,11 @@ $(function(){
     jGallery: function ( parametros ) {
       
       $.extend ( jgOptions, parametros );
-      
-      $(this).createjGallery();
-      
-      $(this).setDefaults();
-      
-      
-      $(this).setjGalleryEvents();
-      
+      $( this ).createjGallery();
+      $( this ).setDefaults();
+      $( this ).setjGalleryEvents();
+      $( this )._setLoader ( );
+
       
       // suporte para mais de uma galeria por pagina  
       $( this ).each ( function ( ) {
