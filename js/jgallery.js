@@ -238,7 +238,6 @@ $(function(){
 
       jgOptions.jgGallery.css ( { 'width': jgOptions.jgGalleryTotalWidth } );
       jgOptions.jgCarrocelGallery.css ( { 'width': jgOptions.jgContainerImageObject.css('width') } );
-      jgOptions.jgCarrocelGallery.css ( { opacity: 0.2 } );
       
       window_height = ($( 'body' ).innerHeight () < $( window ).width ()) ? $( window ).width () : $( 'body' ).innerHeight ();
       // background of the jGallery.
