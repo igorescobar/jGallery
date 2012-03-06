@@ -1,5 +1,5 @@
 /*!
- * jGallery jQuery Plugin v1.0
+ * jGallery jQuery Plugin v1.1
  *
  * http://blog.igorescobar.com/
  *
@@ -15,9 +15,9 @@ $(function(){
     // indicates when jGallery is opened
     jgOptions.jgIsOpen = false;
     // max height that an image can have
-    jgOptions.jgImageMaxHeight = ( $( window ).height () / 100 ) * 90;
+    jgOptions.jgImageMaxHeight = $( window ).height () * 0.90;
     // max width that an image can have
-    jgOptions.jgImageMaxWidth = ( $( window ).width () / 100 ) * 95;
+    jgOptions.jgImageMaxWidth = $( window ).width () * 0.95;
     // caroucel element inside of an opened jGallery
     jgOptions.jgCarrocelGallery = $( '.jgCarrocel' );
     // saved opened gallery images element
@@ -282,6 +282,8 @@ $(function(){
       
       // removes the clicked image classes.
       $('img').removeClass('jgImageClicked');
+
+      jgOptions.jgContainerImage.removeClass('animated pulse');
       
       // add the css class of the clicked image on the current clicked image
       jgOptions.openedImage.find('img').addClass('jgImageClicked');
@@ -292,6 +294,7 @@ $(function(){
       jgOptions.jgContainerImage.find('.jgloader').show();
 
       $(this)._preLoadImage(oLinkClick.attr('href'), function(preload){
+
         // if the navigation is hidden then show.
         if ( $( '.nav' ).css ( 'display' ) == 'none' ) 
           $( '.nav' ).fadeIn ( 'slow' );
@@ -324,8 +327,8 @@ $(function(){
           }
           
           // shows the big imagem
-          jgOptions.jgContainerImage.fadeIn ( 'fast' );
-          
+          jgOptions.jgContainerImage.fadeIn ( 'fast' ).addClass('animated pulse');
+
           // Update the CSS propertys and the container
           $( this ).centralizaImageContainer ( );
           $( this )._setContainerCSS ( );
