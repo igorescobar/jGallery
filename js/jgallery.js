@@ -12,43 +12,43 @@ $(function(){
   var jgOptions = {};
 
   jQuery.fn.setDefaults = function ( ) {
-    // flag que indica quando o jGallery está aberto
+    // indicates when jGallery is opened
     jgOptions.jgIsOpen = false;
-    // algura máxima que uma imagem pode ter
+    // max height that an image can have
     jgOptions.jgImageMaxHeight = ( $( window ).height () / 100 ) * 90;
-    // largura máxima que uma imagem pode ter
+    // max width that an image can have
     jgOptions.jgImageMaxWidth = ( $( window ).width () / 100 ) * 95;
-    // elemento que faz o slide das imagens
+    // caroucel element inside of an opened jGallery
     jgOptions.jgCarrocelGallery = $( '.jgCarrocel' );
-    // elemento que guarda as imagens da galeria
+    // saved opened gallery images element
     jgOptions.jgGallery = $( '.jgFullGallery' );
-    // recebe a altura da galeria no popup
+    // store the height of the gallery pop-up
     jgOptions.jgGalleryHeight = 0;
-    // recebe a largura máxima da galeria somando a largura de todas as miniaturas
+    // receive the max width of the opened gallery by adding the width of all thumbnails
     jgOptions.jgGalleryTotalWidth = 0;
-    // guarda o numero de vezes que eu posso deslizar a galeria para frente
+    // save's the number of pages of the caroucel
     jgOptions.jgMaxNextClick = 0;
-    // guarda a pagina atual do slide
+    // current caroucel page
     jgOptions.jgCurrentPage = 0;
-    // guarda o elemento do background
+    // background element
     jgOptions.jgBackground = $( '.jgBackground' );
-    // guarda o elemento que envolve o jGallery
+    // jGallery container
     jgOptions.jgContainer = $( '.jgContainer' );
-    // elemento que contem navegacao, imagem grande e imagens da galeria
+    // navigation, big picture and thumbnails element
     jgOptions.jgContainerImage = $( '.jgContainer .image');
-    // objeto da imagem grande
+    // current opened picture element
     jgOptions.jgContainerImageObject = $( '.jgContainer .image img#jgallery');
-    // guarda as elementos da galeria que foi aberta
+    // opened gallery object
     jgOptions.openedGallery = null;
-    // guarda os elementos da imagem que foi aberta
+    // current opened image element
     jgOptions.openedImage = null;
 
-  }
+  };
 
   /**
-   * Cria todo o HTML necessário para que o jGallery funcione
-   * - Botoes de next, prev e close.
-   * - Botoes de slide entre as imagens da galeria.
+   * Creates all HTML structure to the jGallery work's sweet.
+   * - Next, prev e close button.
+   * - Slide buttons.
    */
   jQuery.fn.createjGallery = function ( ) {
       
@@ -75,17 +75,17 @@ $(function(){
         </div> \
        </div>' );
       
-  }
+  };
 
   /**
-   * Aplica todos os eventos dentro do HTML responsável pelo jGallery
-   * - Botoes de next, prev e close.
-   * - Botoes de slide entre as imagens da galeria.
-   * - Quando clicar fora da area do jGallery fecha a galeria.
+   * Setting jGallery Events
+   * - Next, prev e close buttons.
+   * - Caroucel buttons.
+   * - Closes the gallery when some click occurs outside of the gallery area.
    */
   jQuery.fn.setjGalleryEvents = function ( ) {
     
-    // mantem o fundo do jGallery sempre to tamanho da janela
+    // keeps jGallery background always with the window size.
     $( window ).bind ( 'resize' , function () {
       
       $( this )._setContainerCSS ( );
@@ -93,7 +93,7 @@ $(function(){
       
     });
     
-    // se clicar no background feche o jGallery
+    // closes the jGallery if i click on the background
     jgOptions.jgBackground.bind ( 'click' , function () {
       
       jgOptions.jgIsOpen = false;
@@ -107,7 +107,7 @@ $(function(){
       return false;
     });
     
-    // fecha o jGallery
+    // closes the jGalerry event
     $('.jgContainer .image div.nav a[rel=close]').bind ('click', function () {  
       
       $( '.jgBackground' ).trigger('click');
@@ -115,7 +115,7 @@ $(function(){
       return false;
     });
     
-    // passa para proxima imagem
+    // setting the next image event
     $('.jgContainer .image div.nav a[rel=next]').bind ('click', function () {
       
       if ( jgOptions.openedImage.next().length > 0 )
@@ -124,7 +124,7 @@ $(function(){
       return false;
     });
     
-    // passa para imagem anterior
+    // setting previous image event
     $('.jgContainer .image div.nav a[rel=prev]').bind ('click', function () {
       
       if ( jgOptions.openedImage.prev().length > 0 )
@@ -134,7 +134,7 @@ $(function(){
     });
     
     // SLIDES
-    // Move Slide para trás
+    // Previous page of the caroucel event
     $('.jgContainer .image .subNav a.jgcarocel-prev').bind ('click' , function () {
       
       var container_width = parseInt ( jgOptions.jgCarrocelGallery.css ( 'width' ).replace ('px', '' ), 10 );
@@ -152,7 +152,7 @@ $(function(){
       return false;
     });
     
-    // Move slide para frente
+    // Next caroucel page event
     $('.jgContainer .image .subNav a.jgcarocel-next').bind ('click' , function () {
       
       var container_width = parseInt ( jgOptions.jgCarrocelGallery.css ( 'width' ).replace ( 'px', '' ), 10 );
@@ -171,7 +171,7 @@ $(function(){
       mouseenter: function() {
         $( this ).fadeTo ('slow', 0.9);
       }
-    })
+    });
     
     jgOptions.jgContainerImageObject.bind('mouseover', function () {
       jgOptions.jgCarrocelGallery.fadeTo ( 'slow' , 0.1 );
@@ -197,11 +197,11 @@ $(function(){
         $( '.jgBackground' ).trigger('click');
           
     });
-  }
+  };
 
   jQuery.fn.extend({  
     
-    // recebe o tamanho total que a galeria terá de largura
+    // get the total width of the gallery
     _getJGalleryTotalWidth: function ( width , height ) {
       jgOptions.jgGalleryTotalWidth = 0;
       
@@ -210,8 +210,8 @@ $(function(){
       });
     },
     
-    // recebe o tamano proporcional da imagem se baseando 
-    // na largura e altura da janela
+    // receive the proportional size of the image based on
+    // width and height of the window
     _getProportionalSize: function ( width , height ) {
       
       var sizes = Array(width, height);
@@ -229,11 +229,10 @@ $(function(){
       return sizes;
     },
     
-    // seta todas as configuracoes CSS necessárias para o jGallery
-    // functionar corretamente
+    // setting all CSS configurations.
     _setContainerCSS: function ( ) {
       
-      // Seta o alpha no background caso o usuário escolha
+      // Setting the alpha background if the user want to.
       if ( typeof jgOptions.jgBackgroundOpacity == "number" )
         jgOptions.jgBackground.css ( { opacity: jgOptions.jgBackgroundOpacity } );
 
@@ -242,7 +241,7 @@ $(function(){
       jgOptions.jgCarrocelGallery.css ( { opacity: 0.2 } );
       
       window_height = ($( 'body' ).innerHeight () < $( window ).width ()) ? $( window ).width () : $( 'body' ).innerHeight ();
-      // fundo do tamanho da janela
+      // background of the jGallery.
       jgOptions.jgBackground.css ({
         height: window_height ,
         width: $( window ).width ()
@@ -250,7 +249,7 @@ $(function(){
       
     },
     
-    // seta a origem e o tamanho de uma imagem 
+    // set the source, width and height of the image 
     _setImage: function ( src, w, h ) {
       
       jgOptions.jgContainerImageObject.attr ( 'src', src );
@@ -259,14 +258,14 @@ $(function(){
       
     },
     
-    // exibe o loader quando necessário
+    // shows the loader when it's necessary
     _setLoader: function ( ) {
       
       jgOptions.jgContainerImage.append('<div class="jgloader"><img src="' + jgOptions.jgRoot + 'images/loading.gif" /></div>');
         
     },
     
-    // faz preloading de uma imagem e chama o callback
+    // do the preloading of an image then call the callback method
     _preLoadImage: function(src, onLoadCallback){
       var preloadImage = new Image ( );
           preloadImage.src = src;
@@ -275,48 +274,48 @@ $(function(){
           })
     },
 
-    // efetua a troca das imagens quando clicadas
-    // efetua a troca da imagem quando clicado nos 
-    // botoes de navegacao next e prev
+    // replace the current image when the click happens
+    // replace the current image when the prev and next button
+    // was clicked
     _switchImage: function ( oLinkClick ) {
       
       jgOptions.openedImage = oLinkClick;
       
-      // remove todas as classes referente a click de imagem
+      // removes the clicked image classes.
       $('img').removeClass('jgImageClicked');
       
-      // acrescenta a classe referente a imagem que foi clicada
+      // add the css class of the clicked image on the current clicked image
       jgOptions.openedImage.find('img').addClass('jgImageClicked');
       
-      // faz o preload da imagem
+      // image preloading
       var image_title = oLinkClick.find( 'img' ).attr('title');
       
       jgOptions.jgContainerImage.find('.jgloader').show();
 
       $(this)._preLoadImage(oLinkClick.attr('href'), function(preload){
-        // se os controles estiverem ocultos, mostre.
+        // if the navigation is hidden then show.
         if ( $( '.nav' ).css ( 'display' ) == 'none' ) 
           $( '.nav' ).fadeIn ( 'slow' );
 
-        // recebe os tamanhos proporcionais
+        // get the propotional image size.
         var sizes = $(this)._getProportionalSize(preload.width, preload.height);
         
-        // evita que a imagem fique maior do que o permitido
+        // images can't be bigger than the maximum allowed.
         preload.width = sizes[0];
         preload.height = sizes[1];
         
         jgOptions.jgGalleryHeight = jgOptions.openedImage.find ('img').height ();
                 
-        // esconde o container da imagem
+        // hide the image container
         jgOptions.jgContainerImage.fadeOut('fast', function () {
           
-          // esconde loader
+          // hides the loeader
           jgOptions.jgContainerImage.find('.jgloader').hide();
           
-          // carrega imagem clicada
+          // loads the clicked image
           $( this )._setImage ( oLinkClick.attr ( 'href' ) , preload.width, preload.height );   
           
-          // Atacha a legenda
+          // subtitle attachmend
           if ( image_title != '' ) {
             $( '.jgContainer .image div.legenda' ).html ( image_title );
             $( '.jgContainer .image div.legenda' ).fadeIn ( 'slow');
@@ -325,10 +324,10 @@ $(function(){
               jgOptions.jgCarrocelGallery.animate({bottom: '-=30px'});
           }
           
-          // mostra a imagem grande
+          // shows the big imagem
           jgOptions.jgContainerImage.fadeIn ( 'fast' );
           
-          // Atualiza as propriedades CSS e Container
+          // Update the CSS propertys and the container
           $( this ).centralizaImageContainer ( );
           $( this )._setContainerCSS ( );
           
@@ -336,7 +335,7 @@ $(function(){
       });
     },
     
-    // mantem a imagem sempre centralizada
+    // keeps the image always on the center
     centralizaImageContainer: function ( ) {
       
       var calc_top = ( ( $( window ).height () / 2) - ( jgOptions.jgContainerImage.innerHeight() / 2 ) );
@@ -356,13 +355,12 @@ $(function(){
       $( this ).setjGalleryEvents();
       $( this )._setLoader ( );
 
-      
-      // suporte para mais de uma galeria por pagina  
+      // more then one gallery per page
       $( this ).each ( function ( ) {
               
         $( this )._setContainerCSS ( );
         
-        // abre a galeria se clicar em alguma imagem dela
+        // Open the respective gallery of the clicked image
         $( this ).find ( 'a:has(img)' ).bind ( 'click' , function ( ) { 
           
           jgOptions.openedGallery = $( this ).parent();
@@ -371,19 +369,19 @@ $(function(){
           
           $('.jgFullGallery').html ('');
           
-          // clona a galeria
+          // clones the gallery
           jgOptions.openedGallery.find ( 'a:has(img)' ).each ( function () {
             $( $(this) ).clone ( ).appendTo ( $( '.jgFullGallery' ) );  
             $( this )._getJGalleryTotalWidth();
           });
           
-          // objeto do link
+          // link object
           jgOptions.openedImage = $( this );
           
           $(this)._preLoadImage(jgOptions.openedImage.attr('href'), function(imageObject){
 
             jgOptions.jgBackground.fadeIn ( 'slow' , function ( ) {
-              // mostra o container
+              // shows the container
               jgOptions.jgContainer.fadeIn ( 2000 , function () {
                 jgOptions.jgCarrocelGallery.slideDown ( 'slow' );
               });
@@ -399,12 +397,10 @@ $(function(){
           
         });
         
-        // troca de imagem se clicarem em alguma imagem na box flutuante
+        // switch the image if the click on the floating box happen.
         $( '.jgFullGallery' ).find ( 'a:has(img)' ).live ( 'click' , function ( ) {       
           
-          // objeto do link
           jgOptions.openedImage = $( this );
-    
           $( this )._switchImage ( jgOptions.openedImage );
             
           return false;
