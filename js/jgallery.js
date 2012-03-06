@@ -169,7 +169,7 @@ $(function(){
     
     jgOptions.jgCarrocelGallery.bind({
       mouseenter: function() {
-        $( this ).fadeTo ('slow', 0.9);
+        $( this ).fadeTo ('fast', 0.9);
       }
     });
     
@@ -280,11 +280,6 @@ $(function(){
       
       jgOptions.openedImage = oLinkClick;
       
-      // removes the clicked image classes.
-      $('img').removeClass('jgImageClicked');
-
-      jgOptions.jgContainerImage.removeClass('animated pulse');
-      
       // add the css class of the clicked image on the current clicked image
       jgOptions.openedImage.find('img').addClass('jgImageClicked');
       
@@ -327,7 +322,7 @@ $(function(){
           }
           
           // shows the big imagem
-          jgOptions.jgContainerImage.fadeIn ( 'fast' ).addClass('animated pulse');
+          jgOptions.jgContainerImage.fadeIn ( 'fast' );
 
           // Update the CSS propertys and the container
           $( this ).centralizaImageContainer ( );
@@ -379,7 +374,6 @@ $(function(){
           
           // link object
           jgOptions.openedImage = $( this );
-          
           $(this)._preLoadImage(jgOptions.openedImage.attr('href'), function(imageObject){
 
             jgOptions.jgBackground.fadeIn ( 'slow' , function ( ) {
@@ -389,11 +383,8 @@ $(function(){
               });
               
               $( this )._switchImage ( jgOptions.openedImage );
-
             });
           });
-
-          
           
           return false;
           
