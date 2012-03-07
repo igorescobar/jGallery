@@ -311,16 +311,24 @@ $(function(){
       });
       
     },
+    /*
+     * Optional parameters
+     * - jgImageMaxHeight (Integer)
+     * - jgImageMaxWidth (Integer)
+     * - jgBackgroundOpacity (Float)
+     */
     jGallery: function ( parametros ) {
       
       $( this ).createjGallery();
 
-      // indicates when jGallery is opened
-      jgOptions.jgIsOpen = false;
       // max height that an image can have
       jgOptions.jgImageMaxHeight = $( window ).height () * 0.90;
       // max width that an image can have
       jgOptions.jgImageMaxWidth = $( window ).width () * 0.95;
+      // setting default background opacity
+      jgOptions.jgBackgroundOpacity = 0.5;
+      // indicates when jGallery is opened
+      jgOptions.jgIsOpen = false;
       // caroucel element inside of an opened jGallery
       jgOptions.jgCarrocelGallery = $( '.jgCarrocel' );
       // saved opened gallery images element
