@@ -12,9 +12,7 @@
   
   <script type="text/javascript">
   $(document).ready(function(){
-    $('.jGallery').jGallery({ 
-      jgBackgroundOpacity: 0.5
-    });
+    $('.jGallery').jGallery();
   });
   </script>
   
@@ -33,11 +31,29 @@
     <a href="galeria/image-6.jpg"><img src="galeria/thumb-6.jpg" title="Imagem de Demo jGallery 6"/></a>
   </div>
   <h2>Code</h2>
-    <code lang="javascript"><pre>
+  <code lang="javascript"><pre>
+$(document).ready(function(){
+  $('.jGallery').jGallery();
+});
+  </pre>
+  </code> 
+
+  <h3>Code Example 1</h3>
+  <code lang="javascript"><pre>
 $(document).ready(function(){
   $('.jGallery').jGallery({
-    jgRoot: './',
-    jgBackgroundOpacity: 0.5
+    jgBackgroundOpacity: 0.9
+  });
+});
+  </pre>
+  </code> 
+  <h3>Code Example 2</h3>
+  <code lang="javascript"><pre>
+$(document).ready(function(){
+  $('.jGallery').jGallery({
+    jgBackgroundOpacity: 0.2,
+    jgImageMaxWidth: 500,
+    jgImageMaxHeight: 200
   });
 });
   </pre>
