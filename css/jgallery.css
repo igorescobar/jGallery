@@ -16,9 +16,17 @@
 .jgContainer .legenda { font-family: Verdana; font-size:10px; display:none; padding: 5px; color: #333; }
 .jgContainer .jgFullGallery { right:0px; width:700px; position:relative }
 
-.jgContainer .nav { display:none; float:left; }
+.jgContainer .nav { display:none;}
+.jgContainer .nav a {display:inline-block;}
+.jgContainer .nav a.prev {background:url("../images/prev.gif"); width:63px; height:32px;}
+.jgContainer .nav a.next {background:url("../images/next.gif"); width:63px; height:32px;}
+.jgContainer .nav a.close {background:url("../images/close.gif"); width:63px; height:32px;}
+
 .jgContainer .subNav { z-index:103; float:left; position: absolute; bottom: 0px }
+.jgContainer .subNav a {display:inline-block;}
+.jgContainer .subNav a.jgcarocel-prev {background:url("../images/arrow-left.gif"); width:15px; height:15px;}
+.jgContainer .subNav a.jgcarocel-next {background:url("../images/arrow-right.gif"); width:15px; height:15px;}
 
 .jgContainer .jgCarrocel { z-index:110;  width: 300px; text-align:left; margin:0 auto; bottom:30px; padding-top:4px; padding-bottom: 4px; overflow: hidden; background-color:#FFF; position:absolute; float:left; }
-.jgContainer .jgloader {float:left;position:absolute;top:45%; left:37%;display:none;}
+.jgContainer .jgloader {float:left;position:absolute;top:45%; left:37%;display:none;background:url("../images/loading.gif"); width:128px; height:15px;}
 .jgcarocel-prev, .jgcarocel-next { width: 50px; height:50px }

@@ -13,7 +13,6 @@
   <script type="text/javascript">
   $(document).ready(function(){
     $('.jGallery').jGallery({ 
-      jgRoot: './', 
       jgBackgroundOpacity: 0.5
     });
   });
@@ -24,8 +23,8 @@
 <br />
 <div id="content">
   <h1>jGallery</h1>
-  <h2>Example 1</h2>
-    <div class="jGallery">
+  <h2>Example</h2>
+  <div class="jGallery">
     <a href="galeria/image-1.jpg"><img src="galeria/thumb-1.jpg" title="Imagem de Demo jGallery 1"/></a>
     <a href="galeria/image-2.jpg"><img src="galeria/thumb-2.jpg" title="Imagem de Demo jGallery 2"/></a>
     <a href="galeria/image-3.jpg"><img src="galeria/thumb-3.jpg" title="Imagem de Demo jGallery 3"/></a>
@@ -33,6 +32,16 @@
     <a href="galeria/image-5.jpg"><img src="galeria/thumb-5.jpg" title="Imagem de Demo jGallery 5"/></a>
     <a href="galeria/image-6.jpg"><img src="galeria/thumb-6.jpg" title="Imagem de Demo jGallery 6"/></a>
   </div>
+  <h2>Code</h2>
+    <code lang="javascript"><pre>
+$(document).ready(function(){
+  $('.jGallery').jGallery({
+    jgRoot: './',
+    jgBackgroundOpacity: 0.5
+  });
+});
+  </pre>
+  </code> 
   <p>jGallery on <a href="https://github.com/igorescobar/jGallery" target="_blank">GitHub</a> & Author <a href="http://blog.igorescobar.com/" rel="author" target="_blank">Igor Escobar</a> </p>
 </div>
 <br clear="all" />

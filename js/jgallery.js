@@ -9,41 +9,8 @@
  */
 
 $(function(){
+
   var jgOptions = {};
-
-  jQuery.fn.setDefaults = function ( ) {
-    // indicates when jGallery is opened
-    jgOptions.jgIsOpen = false;
-    // max height that an image can have
-    jgOptions.jgImageMaxHeight = $( window ).height () * 0.90;
-    // max width that an image can have
-    jgOptions.jgImageMaxWidth = $( window ).width () * 0.95;
-    // caroucel element inside of an opened jGallery
-    jgOptions.jgCarrocelGallery = $( '.jgCarrocel' );
-    // saved opened gallery images element
-    jgOptions.jgGallery = $( '.jgFullGallery' );
-    // store the height of the gallery pop-up
-    jgOptions.jgGalleryHeight = 0;
-    // receive the max width of the opened gallery by adding the width of all thumbnails
-    jgOptions.jgGalleryTotalWidth = 0;
-    // save's the number of pages of the caroucel
-    jgOptions.jgMaxNextClick = 0;
-    // current caroucel page
-    jgOptions.jgCurrentPage = 0;
-    // background element
-    jgOptions.jgBackground = $( '.jgBackground' );
-    // jGallery container
-    jgOptions.jgContainer = $( '.jgContainer' );
-    // navigation, big picture and thumbnails element
-    jgOptions.jgContainerImage = $( '.jgContainer .image');
-    // current opened picture element
-    jgOptions.jgContainerImageObject = $( '.jgContainer .image img#jgallery');
-    // opened gallery object
-    jgOptions.openedGallery = null;
-    // current opened image element
-    jgOptions.openedImage = null;
-
-  };
 
   /**
    * Creates all HTML structure to the jGallery work's sweet.
@@ -57,16 +24,16 @@ $(function(){
       <div class="jgContainer"> \
         <div class="image"> \
           <div class="nav"> \
-            <a href="#" rel="prev"><img src="' + jgOptions.jgRoot + 'images/prev.gif" /></a> \
-            <a href="#" rel="next"><img src="' + jgOptions.jgRoot + 'images/next.gif" /></a> \
-            <a href="#" rel="close"><img src="' + jgOptions.jgRoot + 'images/close.gif" /></a> \
+            <a href="#" class="prev"></a> \
+            <a href="#" class="next"></a> \
+            <a href="#" class="close"></a> \
           </div> \
           <div class="img"> \
             <img src="#" id="jgallery"/> \
             <div class="jgCarrocel"> \
               <div class="subNav"> \
-                <a href="#" class="jgcarocel-prev"><img src="' + jgOptions.jgRoot + 'images/arrow-left.gif" /></a> \
-                <a href="#" class="jgcarocel-next"><img src="' + jgOptions.jgRoot + 'images/arrow-right.gif" /></a> \
+                <a href="#" class="jgcarocel-prev"></a> \
+                <a href="#" class="jgcarocel-next"></a> \
               </div> \
               <div class="jgFullGallery"></div> \
             </div> \
@@ -108,7 +75,7 @@ $(function(){
     });
     
     // closes the jGalerry event
-    $('.jgContainer .image div.nav a[rel=close]').bind ('click', function () {  
+    $('.jgContainer .image div.nav a.close').bind ('click', function () {  
       
       $( '.jgBackground' ).trigger('click');
           
@@ -116,7 +83,7 @@ $(function(){
     });
     
     // setting the next image event
-    $('.jgContainer .image div.nav a[rel=next]').bind ('click', function () {
+    $('.jgContainer .image div.nav a.next').bind ('click', function () {
       
       if ( jgOptions.openedImage.next().length > 0 )
         $(this)._switchImage ( jgOptions.openedImage.next('a') );
@@ -125,7 +92,7 @@ $(function(){
     });
     
     // setting previous image event
-    $('.jgContainer .image div.nav a[rel=prev]').bind ('click', function () {
+    $('.jgContainer .image div.nav a.prev').bind ('click', function () {
       
       if ( jgOptions.openedImage.prev().length > 0 )
         $(this)._switchImage ( jgOptions.openedImage.prev('a') );
@@ -188,10 +155,10 @@ $(function(){
       var key_esc   = [27];
         
       if ( jgOptions.jgIsOpen == true && ( jQuery.inArray (event.keyCode, key_right) == 0 || jQuery.inArray (event.keyCode, key_n) == 0 ) )
-        $('.jgContainer .image div.nav a[rel=next]').trigger('click');
+        $('.jgContainer .image div.nav a.next').trigger('click');
         
       if ( jgOptions.jgIsOpen == true && ( jQuery.inArray (event.keyCode, key_left) == 0 || jQuery.inArray (event.keyCode, key_p) == 0 ) )
-        $('.jgContainer .image div.nav a[rel=prev]').trigger('click');
+        $('.jgContainer .image div.nav a.prev').trigger('click');
       
       if ( jgOptions.jgIsOpen == true && ( jQuery.inArray (event.keyCode, key_esc) == 0  ) )
         $( '.jgBackground' ).trigger('click');
@@ -260,7 +227,7 @@ $(function(){
     // shows the loader when it's necessary
     _setLoader: function ( ) {
       
-      jgOptions.jgContainerImage.append('<div class="jgloader"><img src="' + jgOptions.jgRoot + 'images/loading.gif" /></div>');
+      jgOptions.jgContainerImage.append('<div class="jgloader"></div>');
         
     },
     
@@ -346,37 +313,70 @@ $(function(){
     },
     jGallery: function ( parametros ) {
       
-      $.extend ( jgOptions, parametros );
       $( this ).createjGallery();
-      $( this ).setDefaults();
+
+      // indicates when jGallery is opened
+      jgOptions.jgIsOpen = false;
+      // max height that an image can have
+      jgOptions.jgImageMaxHeight = $( window ).height () * 0.90;
+      // max width that an image can have
+      jgOptions.jgImageMaxWidth = $( window ).width () * 0.95;
+      // caroucel element inside of an opened jGallery
+      jgOptions.jgCarrocelGallery = $( '.jgCarrocel' );
+      // saved opened gallery images element
+      jgOptions.jgGallery = $( '.jgFullGallery' );
+      // store the height of the gallery pop-up
+      jgOptions.jgGalleryHeight = 0;
+      // receive the max width of the opened gallery by adding the width of all thumbnails
+      jgOptions.jgGalleryTotalWidth = 0;
+      // save's the number of pages of the caroucel
+      jgOptions.jgMaxNextClick = 0;
+      // current caroucel page
+      jgOptions.jgCurrentPage = 0;
+      // background element
+      jgOptions.jgBackground = $( '.jgBackground' );
+      // jGallery container
+      jgOptions.jgContainer = $( '.jgContainer' );
+      // navigation, big picture and thumbnails element
+      jgOptions.jgContainerImage = $( '.jgContainer .image');
+      // current opened picture element
+      jgOptions.jgContainerImageObject = $( '.jgContainer .image img#jgallery');
+      // opened gallery object
+      jgOptions.openedGallery = null;
+      // current opened image element
+      jgOptions.openedImage = null;
+
+      $.extend ( jgOptions, parametros );
+
       $( this ).setjGalleryEvents();
-      $( this )._setLoader ( );
+      $( this )._setLoader();
 
       // more then one gallery per page
       $( this ).each ( function ( ) {
-              
+
         $( this )._setContainerCSS ( );
         
         // Open the respective gallery of the clicked image
         $( this ).find ( 'a:has(img)' ).bind ( 'click' , function ( ) { 
           
           jgOptions.openedGallery = $( this ).parent();
-          
+
           jgOptions.jgIsOpen = true;
           
-          $('.jgFullGallery').html ('');
+          jgOptions.jgGallery.html ('');
           
           // clones the gallery
           jgOptions.openedGallery.find ( 'a:has(img)' ).each ( function () {
-            $( $(this) ).clone ( ).appendTo ( $( '.jgFullGallery' ) );  
+            $( $(this) ).clone ( ).appendTo ( jgOptions.jgGallery );  
             $( this )._getJGalleryTotalWidth();
           });
           
           // link object
           jgOptions.openedImage = $( this );
+
           $(this)._preLoadImage(jgOptions.openedImage.attr('href'), function(imageObject){
 
-            jgOptions.jgBackground.fadeIn ( 'slow' , function ( ) {
+            jgOptions.jgBackground.fadeIn ( 'slow' , function () {
               // shows the container
               jgOptions.jgContainer.fadeIn ( 2000 , function () {
                 jgOptions.jgCarrocelGallery.slideDown ( 'slow' );
