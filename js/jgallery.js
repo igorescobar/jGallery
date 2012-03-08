@@ -1,5 +1,5 @@
 /*!
- * jGallery jQuery Plugin v1.1
+ * jGallery jQuery Plugin
  *
  * http://blog.igorescobar.com/
  *
@@ -206,11 +206,10 @@ $(function(){
       jgOptions.jgGallery.css ( { 'width': jgOptions.jgGalleryTotalWidth } );
       jgOptions.jgCarrocelGallery.css ( { 'width': jgOptions.jgContainerImageObject.css('width') } );
       
-      window_height = ($( 'body' ).innerHeight () < $( window ).width ()) ? $( window ).width () : $( 'body' ).innerHeight ();
       // background of the jGallery.
       jgOptions.jgBackground.css ({
-        height: window_height ,
-        width: $( window ).width ()
+        height: $(document).outerHeight (),
+        width: $(document).outerWidth ()
       });
       
     },
