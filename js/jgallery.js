@@ -226,7 +226,7 @@ $(function(){
     // shows the loader when it's necessary
     _setLoader: function ( ) {
       
-      jgOptions.jgContainerImage.append('<div class="jgloader"></div>');
+      $('body').append('<div class="jgloader"></div>');
         
     },
     
@@ -252,7 +252,7 @@ $(function(){
       // image preloading
       var image_title = oLinkClick.find( 'img' ).attr('title');
       
-      jgOptions.jgContainerImage.find('.jgloader').show();
+      $('.jgloader').show();
 
       $(this)._preLoadImage(oLinkClick.attr('href'), function(preload){
 
@@ -273,7 +273,7 @@ $(function(){
         jgOptions.jgContainerImage.fadeOut('fast', function () {
           
           // hides the loeader
-          jgOptions.jgContainerImage.find('.jgloader').hide();
+          $('.jgloader').hide();
           
           // loads the clicked image
           $( this )._setImage ( oLinkClick.attr ( 'href' ) , preload.width, preload.height );   
@@ -365,6 +365,8 @@ $(function(){
         
         // Open the respective gallery of the clicked image
         $( this ).find ( 'a:has(img)' ).bind ( 'click' , function ( ) { 
+          
+          $('.jgloader').show();
           
           jgOptions.openedGallery = $( this ).parent();
 
