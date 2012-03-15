@@ -10,7 +10,7 @@
 
 /*jslint undef: false, browser: false, es5: true, maxerr: 50, indent: 2 */
 
-$(function () {
+(function ($) {
   "use strict";
   var jgOptions = {};
 
@@ -20,29 +20,29 @@ $(function () {
    * - Slide buttons.
    */
 
-  jQuery.fn.createjGallery = function () {
+  $.fn.createjGallery = function () {
     $('body').prepend(
-       '<div class="jgBackground"></div> \
-        <div class="jgContainer"> \
-          <div class="image"> \
-            <div class="nav"> \
-              <a href="#" class="prev"></a> \
-              <a href="#" class="next"></a> \
-              <a href="#" class="close"></a> \
-            </div> \
-            <div class="img"> \
-              <img src="#" id="jgallery"/> \
-              <div class="jgCarrocel"> \
-                <div class="subNav"> \
-                  <a href="#" class="jgcarocel-prev"></a> \
-                  <a href="#" class="jgcarocel-next"></a> \
-                </div> \
-                <div class="jgFullGallery"></div> \
-              </div> \
-            </div> \
-            <div class="legenda"></div> \
-          </div> \
-        </div>'
+      '<div class="jgBackground"></div> \
+       <div class="jgContainer"> \
+         <div class="image"> \
+           <div class="nav"> \
+             <a href="#" class="prev"></a> \
+             <a href="#" class="next"></a> \
+             <a href="#" class="close"></a> \
+           </div> \
+           <div class="img"> \
+             <img src="#" id="jgallery"/> \
+             <div class="jgCarrocel"> \
+               <div class="subNav"> \
+                 <a href="#" class="jgcarocel-prev"></a> \
+                 <a href="#" class="jgcarocel-next"></a> \
+               </div> \
+               <div class="jgFullGallery"></div> \
+             </div> \
+           </div> \
+           <div class="legenda"></div> \
+         </div> \
+       </div>'
     );
   };
 
@@ -52,7 +52,7 @@ $(function () {
    * - Caroucel buttons.
    * - Closes the gallery when some click occurs outside of the gallery area.
    */
-  jQuery.fn.setjGalleryEvents = function () {
+  $.fn.setjGalleryEvents = function () {
     // keeps jGallery background always with the window size.
     $(window).bind('resize', function () {
       $(this).setContainerCSS();
@@ -155,22 +155,22 @@ $(function () {
         key_n   = [78],
         key_esc   = [27];
 
-      if (jgOptions.jgIsOpen === true && (jQuery.inArray(event.keyCode, key_right) === 0 || jQuery.inArray(event.keyCode, key_n) === 0)) {
+      if (jgOptions.jgIsOpen === true && ($.inArray(event.keyCode, key_right) === 0 || $.inArray(event.keyCode, key_n) === 0)) {
         $('.jgContainer .image div.nav a.next').trigger('click');
       }
 
-      if (jgOptions.jgIsOpen === true && (jQuery.inArray(event.keyCode, key_left) === 0 || jQuery.inArray(event.keyCode, key_p) === 0)) {
+      if (jgOptions.jgIsOpen === true && ($.inArray(event.keyCode, key_left) === 0 || $.inArray(event.keyCode, key_p) === 0)) {
         $('.jgContainer .image div.nav a.prev').trigger('click');
       }
 
-      if (jgOptions.jgIsOpen === true && (jQuery.inArray(event.keyCode, key_esc) === 0)) {
+      if (jgOptions.jgIsOpen === true && ($.inArray(event.keyCode, key_esc) === 0)) {
         $('.jgBackground').trigger('click');
       }
 
     });
   };
 
-  jQuery.fn.extend({
+  $.fn.extend({
 
     // get the total width of the gallery
     getJGalleryTotalWidth: function () {
@@ -413,4 +413,4 @@ $(function () {
       });
     }
   });
-});
+}(jQuery));
