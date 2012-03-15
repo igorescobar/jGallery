@@ -20,7 +20,7 @@
    * - Slide buttons.
    */
 
-  jQuery.fn.createjGallery = function () {
+  $.fn.createjGallery = function () {
     $('body').prepend(
        '<div class="jgBackground"></div> \
         <div class="jgContainer"> \
@@ -52,7 +52,7 @@
    * - Caroucel buttons.
    * - Closes the gallery when some click occurs outside of the gallery area.
    */
-  jQuery.fn.setjGalleryEvents = function () {
+  $.fn.setjGalleryEvents = function () {
     // keeps jGallery background always with the window size.
     $(window).bind('resize', function () {
       $(this).setContainerCSS();
@@ -155,22 +155,22 @@
         key_n   = [78],
         key_esc   = [27];
 
-      if (jgOptions.jgIsOpen === true && (jQuery.inArray(event.keyCode, key_right) === 0 || jQuery.inArray(event.keyCode, key_n) === 0)) {
+      if (jgOptions.jgIsOpen === true && ($.inArray(event.keyCode, key_right) === 0 || $.inArray(event.keyCode, key_n) === 0)) {
         $('.jgContainer .image div.nav a.next').trigger('click');
       }
 
-      if (jgOptions.jgIsOpen === true && (jQuery.inArray(event.keyCode, key_left) === 0 || jQuery.inArray(event.keyCode, key_p) === 0)) {
+      if (jgOptions.jgIsOpen === true && ($.inArray(event.keyCode, key_left) === 0 || $.inArray(event.keyCode, key_p) === 0)) {
         $('.jgContainer .image div.nav a.prev').trigger('click');
       }
 
-      if (jgOptions.jgIsOpen === true && (jQuery.inArray(event.keyCode, key_esc) === 0)) {
+      if (jgOptions.jgIsOpen === true && ($.inArray(event.keyCode, key_esc) === 0)) {
         $('.jgBackground').trigger('click');
       }
 
     });
   };
 
-  jQuery.fn.extend({
+  $.fn.extend({
 
     // get the total width of the gallery
     getJGalleryTotalWidth: function () {
