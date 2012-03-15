@@ -22,27 +22,27 @@
 
   $.fn.createjGallery = function () {
     $('body').prepend(
-       '<div class="jgBackground"></div> \
-        <div class="jgContainer"> \
-          <div class="image"> \
-            <div class="nav"> \
-              <a href="#" class="prev"></a> \
-              <a href="#" class="next"></a> \
-              <a href="#" class="close"></a> \
-            </div> \
-            <div class="img"> \
-              <img src="#" id="jgallery"/> \
-              <div class="jgCarrocel"> \
-                <div class="subNav"> \
-                  <a href="#" class="jgcarocel-prev"></a> \
-                  <a href="#" class="jgcarocel-next"></a> \
-                </div> \
-                <div class="jgFullGallery"></div> \
-              </div> \
-            </div> \
-            <div class="legenda"></div> \
-          </div> \
-        </div>'
+      '<div class="jgBackground"></div> \
+       <div class="jgContainer"> \
+         <div class="image"> \
+           <div class="nav"> \
+             <a href="#" class="prev"></a> \
+             <a href="#" class="next"></a> \
+             <a href="#" class="close"></a> \
+           </div> \
+           <div class="img"> \
+             <img src="#" id="jgallery"/> \
+             <div class="jgCarrocel"> \
+               <div class="subNav"> \
+                 <a href="#" class="jgcarocel-prev"></a> \
+                 <a href="#" class="jgcarocel-next"></a> \
+               </div> \
+               <div class="jgFullGallery"></div> \
+             </div> \
+           </div> \
+           <div class="legenda"></div> \
+         </div> \
+       </div>'
     );
   };
 
