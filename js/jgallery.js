@@ -10,7 +10,7 @@
 
 /*jslint undef: false, browser: false, es5: true, maxerr: 50, indent: 2 */
 
-$(function () {
+(function ($) {
   "use strict";
   var jgOptions = {};
 
@@ -413,4 +413,4 @@ $(function () {
       });
     }
   });
-});
+}(jQuery));
